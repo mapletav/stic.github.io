@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.25rem;
+            background-color: #edf2f7;
+            color: #2d3748;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3);
+        }
+
+        .result {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #2d3748;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>高利润出售数值计算器</h1>
+        <div class="input-group">
+            <label for="number">输入物品进价金额：</label>
+            <input type="number" id="number" placeholder="请输入纯数字" autofocus>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('number');
+        const result = document.getElementById('result');
+
+        function calculate() {
+            const number = parseFloat(input.value);
+            if (!isNaN(number)) {
+                const calculatedValue = number * 2 - 0.01;
+                result.textContent = calculatedValue.toFixed(2);
+            } else {
+                result.textContent = '';
+            }
+        }
+
+        input.addEventListener('input', calculate);
+    </script>
+</body>
+
+</html>
